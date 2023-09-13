@@ -10,6 +10,7 @@ public class Main {
         Boolean running = true;
         Scanner scanner = new Scanner(System.in);
         UserInterface userInterface = new UserInterface();
+        UserData userData = new UserData();
         
         while(running) {
             System.out.println(userInterface.mainMenu());
@@ -20,13 +21,16 @@ public class Main {
                 running = false;
             }
             else if(userInput.equals("1")) {
-                int counter = 1;
-                while(counter <= 24) {
+                int counter = 0;
+                while(counter < 24) {
                     System.out.println("Enter a price for interval " + counter);
                     userInput = scanner.nextLine();
                     try {
                         int price = Integer.parseInt(userInput);
+                        userData.setPricesPerHour(counter, price);
+                        System.out.println(userData.getPricesPerHour().get(counter));
                         counter++;
+                        
                     } catch (Exception e) {
                         System.out.println("Invalid number");
                     }
