@@ -1,7 +1,8 @@
 package Labb1;
 
 public class UserInterface {
-    static StringBuilder mainMenu = new StringBuilder("Elpriser")
+    public StringBuilder mainMenu() {
+        return new StringBuilder("Elpriser")
         .append("\n")
         .append("========")
         .append("\n")
@@ -15,4 +16,9 @@ public class UserInterface {
         .append("\n")
         .append("e. Avsluta")
         ;
+    }
+
+    public String priceInput(int currentInterval) {
+        return "Enter a price for interval" + currentInterval;
+    }
 }
