@@ -24,10 +24,6 @@ public class UserInterface {
         ;
     }
 
-    public String priceInput(int currentInterval) {
-        return "Enter a price for interval" + currentInterval;
-    }
-
     public String minMaxAvgPrices(List<HourlyPrice> data) {
         List<HourlyPrice> currentData = new ArrayList<>(data);
         Collections.sort(currentData, (v1,v2)-> {return v1.price - v2.price;});
@@ -41,7 +37,7 @@ public class UserInterface {
         }
         avgVal = avgVal/24;
         
-        return "Min: " + minVal + ", Max: " + maxVal + ", Average: " + avgVal;
+        return "Min: " + minVal + ", Max: " + maxVal + ", Medel: " + avgVal;
     }
 
     public void sortedValues(List<HourlyPrice> data) {
@@ -64,7 +60,6 @@ public class UserInterface {
 
     public String cheapestHours(List<HourlyPrice> data) {
         int cheapestIntervalStart = 0;
-        int cheapestIntervalEnd = 3;
         int index = 0;
         int listLength = data.size() - 1;
         int sum = data.get(0).price 
@@ -82,16 +77,12 @@ public class UserInterface {
             if(currentPrice < sum) {
                 sum = currentPrice;
                 cheapestIntervalStart = index;
-                cheapestIntervalEnd = index + 3 > listLength ? index + 3 - listLength - 1 : index + 3;
             }
             
             index++;
-            System.out.println(sum + "sum");
-            System.out.println(cheapestIntervalStart + "start");
-            System.out.println(cheapestIntervalEnd + "end");
         }
         String startingHour = String.valueOf(cheapestIntervalStart).length() < 2 ? "0" + String.valueOf(cheapestIntervalStart): String.valueOf(cheapestIntervalStart);
         int avgHourCost = sum/4;
-        return "För att få billigast pris ska du börja ladda klockan " + startingHour + ", medelpriset per timme blir " + avgHourCost;
+        return "För att få billigast pris ska du börja ladda klockan " + startingHour + ", medelpriset per timme blir " + avgHourCost + "öre";
     }
 }

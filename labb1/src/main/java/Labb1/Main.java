@@ -23,7 +23,7 @@ public class Main {
             else if(userInput.equals("1")) {
                 int counter = 0;
                 while(counter < 24) {
-                    System.out.println("Enter a price for interval " + counter);
+                    System.out.println("Ange ett pris för intervall " + counter);
                     userInput = scanner.nextLine();
                     try {
                         int price = Integer.parseInt(userInput);
