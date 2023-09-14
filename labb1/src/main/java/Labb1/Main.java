@@ -1,8 +1,6 @@
 package Labb1;
 
-import java.util.List;
 import java.util.Scanner;
-import java.util.function.Consumer;
 
 public class Main {
     
