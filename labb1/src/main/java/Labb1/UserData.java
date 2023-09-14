@@ -2,6 +2,7 @@ package Labb1;
 
 import java.util.Arrays;
 import java.util.List;
+
 public class UserData {
 
     private List<HourlyPrice> prices = Arrays.asList(new HourlyPrice[24]);

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import Labb1.UserData.HourlyPrice;
+
 public class UserInterface {
     public StringBuilder mainMenu() {
         return new StringBuilder("Elpriser")
