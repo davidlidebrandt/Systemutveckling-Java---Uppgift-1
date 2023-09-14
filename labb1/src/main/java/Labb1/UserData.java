@@ -17,7 +17,7 @@ public class UserData {
         prices.set(index, new HourlyPrice(index, price));
     }
 
-    private class HourlyPrice {
+    class HourlyPrice {
         public int hour;
         public int price;
 

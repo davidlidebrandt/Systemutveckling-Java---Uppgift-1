@@ -1,5 +1,11 @@
 package Labb1;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+import Labb1.UserData.HourlyPrice;
+
 public class UserInterface {
     public StringBuilder mainMenu() {
         return new StringBuilder("Elpriser")
@@ -20,5 +26,21 @@ public class UserInterface {
 
     public String priceInput(int currentInterval) {
         return "Enter a price for interval" + currentInterval;
+    }
+
+    public String minMaxAvgPrices(List<HourlyPrice> data) {
+        List<HourlyPrice> currentData = new ArrayList<>(data);
+        Collections.sort(currentData, (v1,v2)-> {return v1.price - v2.price;});
+      
+        int minVal = currentData.get(0).price;
+        int maxVal = currentData.get(23).price;
+        int avgVal = 0;
+        
+        for(HourlyPrice hp: currentData) {
+            avgVal += hp.price;
+        }
+        avgVal = avgVal/24;
+        
+        return "Min: " + minVal + ", Max: " + maxVal + ", Average: " + avgVal;
     }
 }

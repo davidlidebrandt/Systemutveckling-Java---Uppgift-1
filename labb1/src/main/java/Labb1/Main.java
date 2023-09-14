@@ -28,7 +28,6 @@ public class Main {
                     try {
                         int price = Integer.parseInt(userInput);
                         userData.setPricesPerHour(counter, price);
-                        System.out.println(userData.getPricesPerHour().get(counter));
                         counter++;
                         
                     } catch (Exception e) {
@@ -38,7 +37,7 @@ public class Main {
                 }
             }
             else if(userInput.equals("2")) {
-                
+                System.out.println(userInterface.minMaxAvgPrices(userData.getPricesPerHour()));
             }
             else if(userInput.equals("3")) {
                 
