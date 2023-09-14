@@ -43,4 +43,22 @@ public class UserInterface {
         
         return "Min: " + minVal + ", Max: " + maxVal + ", Average: " + avgVal;
     }
+
+    public void sortedValues(List<HourlyPrice> data) {
+        List<HourlyPrice> currentData = new ArrayList<>(data);
+        Collections.sort(currentData, (v1,v2)-> {return v1.price - v2.price;});
+        
+        for(HourlyPrice v: currentData) {
+            String intervalStart = String.valueOf(v.hour);
+            String intervalEnd = String.valueOf(v.hour + 1);
+            if(intervalStart.length() < 2) {
+                intervalStart = "0" + intervalStart;
+            }
+            if(intervalEnd.length() < 2) {
+                intervalEnd = "0" + intervalEnd;
+            }
+            String currentValues = intervalStart + "-" + intervalEnd + " " + v.price + " öre";
+            System.out.println(currentValues);
+        }
+    }
 }

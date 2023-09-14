@@ -40,7 +40,7 @@ public class Main {
                 System.out.println(userInterface.minMaxAvgPrices(userData.getPricesPerHour()));
             }
             else if(userInput.equals("3")) {
-                
+                userInterface.sortedValues(userData.getPricesPerHour());
             }
             else if(userInput.equals("4")) {
                 
