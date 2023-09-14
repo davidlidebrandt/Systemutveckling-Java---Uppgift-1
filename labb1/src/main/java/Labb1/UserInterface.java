@@ -61,4 +61,37 @@ public class UserInterface {
             System.out.println(currentValues);
         }
     }
+
+    public String cheapestHours(List<HourlyPrice> data) {
+        int cheapestIntervalStart = 0;
+        int cheapestIntervalEnd = 3;
+        int index = 0;
+        int listLength = data.size() - 1;
+        int sum = data.get(0).price 
+                + data.get(1).price
+                + data.get(2).price
+                + data.get(3).price;
+        
+        for(HourlyPrice hp: data) {
+            int firstHour = hp.price;
+            int secondHour = index + 1 > listLength ? data.get(index + 1 - listLength - 1).price : data.get(index + 1).price;
+            int thirdHour = index + 2 > listLength ? data.get(index + 2 - listLength - 1).price : data.get(index + 1).price;
+            int fourthHour = index + 3 > listLength ? data.get(index + 3 - listLength - 1).price : data.get(index +1 ).price;
+            int currentPrice = firstHour + secondHour + thirdHour + fourthHour;
+            
+            if(currentPrice < sum) {
+                sum = currentPrice;
+                cheapestIntervalStart = index;
+                cheapestIntervalEnd = index + 3 > listLength ? index + 3 - listLength - 1 : index + 3;
+            }
+            
+            index++;
+            System.out.println(sum + "sum");
+            System.out.println(cheapestIntervalStart + "start");
+            System.out.println(cheapestIntervalEnd + "end");
+        }
+        String startingHour = String.valueOf(cheapestIntervalStart).length() < 2 ? "0" + String.valueOf(cheapestIntervalStart): String.valueOf(cheapestIntervalStart);
+        int avgHourCost = sum/4;
+        return "För att få billigast pris ska du börja ladda klockan " + startingHour + ", medelpriset per timme blir " + avgHourCost;
+    }
 }

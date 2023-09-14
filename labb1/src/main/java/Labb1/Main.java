@@ -43,7 +43,7 @@ public class Main {
                 userInterface.sortedValues(userData.getPricesPerHour());
             }
             else if(userInput.equals("4")) {
-                
+                System.out.println(userInterface.cheapestHours(userData.getPricesPerHour()));
             }
         }
     }
